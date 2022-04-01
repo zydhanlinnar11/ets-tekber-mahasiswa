@@ -1,0 +1,14 @@
+<resources>
+    <string name="app_name">Mahasiswa</string>
+    <string name="name_field">Name</string>
+    <string name="nrp_field">NRP</string>
+    <string name="ipk_field">GPA</string>
+    <string name="gender_field">Gender</string>
+    <string name="male">Male</string>
+    <string name="female">Female</string>
+    <string name="submit">Submit</string>
+    <string name="please_fill_name">Please enter your name!</string>
+    <string name="please_fill_nrp">Please enter your NRP!</string>
+    <string name="please_fill_gpa">Please enter your GPA!</string>
+    <string name="please_fill_gender">Please choose your gender!</string>
+</resources>
