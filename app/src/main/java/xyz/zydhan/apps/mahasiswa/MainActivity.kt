@@ -4,8 +4,12 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 
 class MainActivity : AppCompatActivity(), View.OnClickListener {
+    private lateinit var recyclerView: RecyclerView
+    private lateinit var mhsAdapter: MahasiswaAdapter
     private val listMhs = arrayListOf<Mahasiswa>()
 
     override fun onClick(view: View) {
@@ -48,5 +52,11 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         setContentView(R.layout.activity_main)
 
         findViewById<Button>(R.id.submit_button).setOnClickListener(this)
+        this.recyclerView = findViewById(R.id.list_mhs)
+        this.mhsAdapter = MahasiswaAdapter(this.listMhs)
+
+        val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
+        this.recyclerView.layoutManager = layoutManager
+        this.recyclerView.adapter = this.mhsAdapter
     }
 }
