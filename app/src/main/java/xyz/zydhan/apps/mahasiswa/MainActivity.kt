@@ -39,7 +39,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
             val gender: Gender = if (isMale) Gender.MALE else Gender.FEMALE
 
             val mhs = Mahasiswa(name, nrp, ipk, gender)
-            listMhs.add(mhs)
+            this.listMhs.add(mhs)
+            this.mhsAdapter.notifyItemInserted(this.listMhs.size - 1)
         } catch (e: NumberFormatException) {
             Toast.makeText(this.applicationContext, R.string.please_fill_gpa, Toast.LENGTH_SHORT).show()
         } catch (e: IllegalArgumentException) {
