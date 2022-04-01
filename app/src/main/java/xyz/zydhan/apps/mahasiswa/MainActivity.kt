@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.view.View
 import android.widget.*
+import androidx.appcompat.app.AppCompatDelegate
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 
@@ -61,5 +62,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         this.recyclerView.layoutManager = layoutManager
         this.recyclerView.adapter = this.mhsAdapter
+
+        AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_YES)
     }
 }
