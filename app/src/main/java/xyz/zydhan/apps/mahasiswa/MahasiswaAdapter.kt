@@ -1,12 +1,13 @@
 package xyz.zydhan.apps.mahasiswa
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
-class MahasiswaAdapter(private val listMhs: ArrayList<Mahasiswa>) :
+class MahasiswaAdapter(private val listMhs: ArrayList<Mahasiswa>, private val context: Context) :
         RecyclerView.Adapter<MahasiswaAdapter.ViewHolder>() {
 
     /**
@@ -24,10 +25,13 @@ class MahasiswaAdapter(private val listMhs: ArrayList<Mahasiswa>) :
     override fun getItemCount() = listMhs.size
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.nameView.text = listMhs[position].name
-        holder.nrpView.text = listMhs[position].nrp
-        holder.ipkView.text = listMhs[position].ipk.toString()
-        holder.genderView.text = listMhs[position].gender.toString()
+        holder.nameView.text = context.getString(R.string.name_string, listMhs[position].name)
+        holder.nrpView.text = context.getString(R.string.nrp_string, listMhs[position].nrp)
+        holder.ipkView.text = context.getString(R.string.ipk_string, listMhs[position].ipk)
+
+        val genderString = listMhs[position].gender.toString().lowercase()
+        val genderResourceId = context.resources.getIdentifier(genderString, "string", context.packageName)
+        holder.genderView.text = context.getString(R.string.gender_string, context.getString(genderResourceId))
     }
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {

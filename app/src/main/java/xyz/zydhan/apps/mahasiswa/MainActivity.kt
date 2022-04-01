@@ -34,6 +34,8 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
             val ipk: Float = ipkEt.text.toString().toFloat()
 
+            if (ipk.compareTo(0.0) < 0 || ipk.compareTo(4.0) > 0) throw IllegalArgumentException(getString(R.string.ipk_must_greater_than0_and_lower_than4))
+
             if (!isFemale && !isMale)  throw IllegalArgumentException(getString(R.string.please_fill_gender))
 
             val gender: Gender = if (isMale) Gender.MALE else Gender.FEMALE
@@ -54,7 +56,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
 
         findViewById<Button>(R.id.submit_button).setOnClickListener(this)
         this.recyclerView = findViewById(R.id.list_mhs)
-        this.mhsAdapter = MahasiswaAdapter(this.listMhs)
+        this.mhsAdapter = MahasiswaAdapter(this.listMhs, this.applicationContext)
 
         val layoutManager: RecyclerView.LayoutManager = LinearLayoutManager(this)
         this.recyclerView.layoutManager = layoutManager
