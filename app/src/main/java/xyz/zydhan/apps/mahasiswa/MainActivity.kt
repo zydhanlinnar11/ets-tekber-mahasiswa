@@ -9,7 +9,7 @@ class MainActivity : AppCompatActivity(), View.OnClickListener {
     private val listMhs = arrayListOf<Mahasiswa>()
 
     override fun onClick(view: View) {
-        if (!view.id.equals(R.id.submit_button)) return
+        if (view.id != R.id.submit_button) return
 
         val nameEt: EditText = findViewById(R.id.name)
         val nrpEt: EditText = findViewById(R.id.nrp)
